@@ -10,13 +10,13 @@
 <head>
     <title>Exhibition we have</title>
     <link rel="stylesheet" href="resources/css/exhibition-style.css">
-    <script type="text/javascript">
-        window.onload = function () {
-            var b = document.getElementById("b");
-            b.disabled = !${Role};
-        }
+    <%--    <script type="text/javascript">--%>
+    <%--        window.onload = function () {--%>
+    <%--            var b = document.getElementById("b");--%>
+    <%--            b.disabled = !${Role};--%>
+    <%--        }--%>
 
-    </script>
+    <%--    </script>--%>
 </head>
 
 <body>
@@ -29,13 +29,17 @@
 
 <div id="container">
     <div id="content">
-        <form action="exhibition" method="get" name="command=CHECK">
-            <input id="b" type="submit" value="Add Exhibition"
-                   onclick="window.location.href='add-exhibition-form.jsp';return false;"
-                   class="add-exhibition-button"
-            />
-        </form>
+        <c:if test="${Log}">
+            <c:if test="${Role}">
 
+                <form action="exhibition" method="get" name="command=CHECK">
+                    <input id="b" type="submit" value="Add Exhibition"
+                           onclick="window.location.href='add-exhibition-form.jsp';return false;"
+                           class="add-exhibition-button"
+                    />
+                </form>
+            </c:if>
+        </c:if>
         <form action="exhibition" method="get">
             <p><select size="3" multiple name="command">
                 <option disabled selected value>Sort by</option>
@@ -52,7 +56,9 @@
                 <th>Hall</th>
                 <th>Date</th>
                 <th>Ticket price</th>
-                <th>Action</th>
+                <c:if test="${Log}">
+                    <th>Action</th>
+                </c:if>
                 <th></th>
 
 
@@ -83,36 +89,22 @@
                     <td> ${tempExhibition.getHall()}</td>
                     <td> ${tempExhibition.getDate()}</td>
                     <td> ${tempExhibition.getTicketPrice()}</td>
-
-<%--                    action="exhibition"  name="command=CHECK"--%>
+                    <c:if test="${Log}">
                     <td>
-                        <form action="${tempLink}" method="get">
-                            <input type="submit" value="Update" />
-                        </form>
-<%--                        <a href="  " > Update</a>--%>
-                        |
-                        <a href="${deleteLink}"
-                           onclick="if(!(confirm('Are you sure you want to delete this exhibition?'))) return false;">Delete</a>
-                        |
+                        <c:if test="${Role}">
+                            <a href="${tempLink}">Update</a>
+                            |
+                            <a href="${deleteLink}"
+                               onclick="if(!(confirm('Are you sure you want to delete this exhibition?'))) return false;">Delete</a>
+                            |
+                            <a href="${StatisticsLink}">Statistics</a>
+                            |
+                        </c:if>
                         <a href="${BuyLink}"
                            onclick="if(!(confirm('Do you think you can afford this ticket?'))) return false;">Buy</a>
-                        |
-                        <a href="${StatisticsLink}">Statistics</a>
-
+                        </c:if>
 
                     </td>
-                        <%--                    <td>--%>
-                        <%--                        <a href="${tempLink}">Update</a>--%>
-                        <%--                        |--%>
-                        <%--                        <a href="${deleteLink}"--%>
-                        <%--                           onclick="if(!(confirm('Are you sure you want to delete this exhibition?'))) return false;">Delete</a>--%>
-                        <%--                        |--%>
-                        <%--                        <a href="${BuyLink}"--%>
-                        <%--                           onclick="if(!(confirm('Do you think you can afford this ticket?'))) return false;">Buy</a>--%>
-                        <%--                        |--%>
-                        <%--                        <a href="${StatisticsLink}">Statistics</a>--%>
-
-                        <%--                    </td>--%>
                 </tr>
 
             </c:forEach>

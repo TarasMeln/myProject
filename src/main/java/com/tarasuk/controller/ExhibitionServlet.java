@@ -19,7 +19,7 @@ public class ExhibitionServlet extends HttpServlet {
     private DataSource dataSource;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)  {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try {
             String theCommand = req.getParameter("command");
             if (theCommand == null) {
@@ -195,8 +195,14 @@ public class ExhibitionServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         Boolean isAdmin = (Boolean) session.getAttribute("Role");
+        Boolean isLog;
         if (isAdmin != null) {
+            isLog = true;
+            req.setAttribute("Log", isLog);
             req.setAttribute("Role", isAdmin);
+        } else {
+            isLog=false;
+            req.setAttribute("Log", isLog);
         }
 
         req.getRequestDispatcher("WEB-INF/view/exhibition-list.jsp").forward(req, resp);
