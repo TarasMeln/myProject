@@ -1,0 +1,15 @@
+
+Z	java:S106?"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ8®æÇû.
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(›øüú8šş¬û.
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‹ÓìÂ8şÓĞ—ù.
+j	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´ªÚ™8¬†í«û.
+d
+java:S3973P"GUse indentation to denote the code conditionally executed by this "if".(†Ùå8µ§¬û.
+T
+java:S1068"7Remove this unused "SQL__FIND_ALL_USERS" private field.(‹ÓìÂ8Â¹«ÿù.
+L
+java:S1068"/Remove this unused "FIELD_EMAIL" private field.(ĞÛéï8Åë‹°ü.
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Úğ¹·û.
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Úğ¹·û.
