@@ -12,6 +12,6 @@
 </head>
 <body>
 You don't have any permission to do this
-<a href="/">Back to main page</a>
+<a href="index.html">Back to main page</a>
 </body>
 </html>

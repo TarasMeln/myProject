@@ -1,4 +1,3 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
   Created by IntelliJ IDEA.
   User: Taras
@@ -22,8 +21,8 @@
 <body>
 <!--Шапка сайту-->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-        <a href="#" class="navbar-brand"><img src="resources/img/Logo7Try.png" alt="logo"></a>
+    <div class="container-fluid" >
+        <a href="#" class="navbar-brand"><img src ="resources/img/Logo7Try.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,21 +35,17 @@
                     <a href="/exhibition" class="nav-link">Виставки</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="/" class="nav-link">Головна</a>
+                    <a href="index.html" class="nav-link">Головна</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Про нас</a>
                 </li>
-                <c:if test="${!isLog}">
-                    <li class="nav-item">
-                        <a href="/user" class="nav-link">Ввійти</a>
-                    </li>
-                </c:if>
-                <c:if test="${isLog}">
-                    <li class="nav-item">
-                        <a href="/logout" class="nav-link">Вийти</a>
-                    </li>
-                </c:if>
+                <li class="nav-item">
+                    <a href="/user" class="nav-link">Ввійти</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Вийти</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -90,14 +85,10 @@
 <div class="container-fluid">
     <div class="row jumbotron">
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil molestiae laborum possimus
-                asperiores, maxime voluptatibus, cupiditate voluptatem, neque repudiandae fugiat at laboriosam ducimus
-                aspernatur nostrum soluta officia natus porro consectetur. </p>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil molestiae laborum possimus asperiores, maxime voluptatibus, cupiditate voluptatem, neque repudiandae fugiat at laboriosam ducimus aspernatur nostrum soluta officia natus porro consectetur. </p>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-            <a href="#">
-                <button class="btn btn-success btn-lg" type="button">Читати далі</button>
-            </a>
+            <a href="#"><button class="btn btn-success btn-lg" type="button">Читати далі</button></a>
         </div>
     </div>
 </div>
@@ -110,11 +101,7 @@
         <hr>
         <div class="col-12">
             <p class="lead">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia earum, impedit expedita ex, deserunt
-                harum. Repellat necessitatibus enim voluptates accusamus, magnam aliquid molestias aliquam dignissimos
-                laborum placeat animi itaque facere praesentium doloremque ducimus quia. Quis autem expedita modi
-                temporibus illum voluptatum, sint delectus quibusdam facere dolorem nobis consequuntur porro, assumenda
-                numquam vel suscipit praesentium fuga enim nesciunt consequatur aliquam vitae?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia earum, impedit expedita ex, deserunt harum. Repellat necessitatibus enim voluptates accusamus, magnam aliquid molestias aliquam dignissimos laborum placeat animi itaque facere praesentium doloremque ducimus quia. Quis autem expedita modi temporibus illum voluptatum, sint delectus quibusdam facere dolorem nobis consequuntur porro, assumenda numquam vel suscipit praesentium fuga enim nesciunt consequatur aliquam vitae?
             </p>
         </div>
     </div>
@@ -125,16 +112,10 @@
     <div class="row padding">
         <div class="offset-lg-2 col-lg-4">
             <h2>Щось про мистецтво</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eos quas quo assumenda asperiores expedita
-                quaerat quam dolor aut libero similique voluptate impedit, dignissimos in voluptatibus porro ducimus
-                praesentium inventore.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eos quas quo assumenda asperiores expedita quaerat quam dolor aut libero similique voluptate impedit, dignissimos in voluptatibus porro ducimus praesentium inventore.</p>
             <br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eos quas quo assumenda asperiores expedita
-                quaerat quam dolor aut libero similique voluptate impedit, dignissimos in voluptatibus porro ducimus
-                praesentium inventore.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eos quas quo assumenda asperiores expedita
-                quaerat quam dolor aut libero similique voluptate impedit, dignissimos in voluptatibus porro ducimus
-                praesentium inventore.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eos quas quo assumenda asperiores expedita quaerat quam dolor aut libero similique voluptate impedit, dignissimos in voluptatibus porro ducimus praesentium inventore.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eos quas quo assumenda asperiores expedita quaerat quam dolor aut libero similique voluptate impedit, dignissimos in voluptatibus porro ducimus praesentium inventore.</p>
             <br>
             <a href="#" class="btn btn-danger">Читати далі</a>
         </div>
@@ -151,9 +132,7 @@
 </figure>
 <!--Закрита секція-->
 <div class="text-center">
-    <button type="button" id="gifsBtn" class="btn btn-success" data-toggle="collapse" data-target="#gifs">Відкрити
-        блок
-    </button>
+    <button type="button" id="gifsBtn" class="btn btn-success" data-toggle="collapse" data-target="#gifs">Відкрити блок</button>
 </div>
 <div id="gifs" class="collapse">
     <div class="container-fluid padding">
@@ -189,8 +168,7 @@
                 <img src="resources/img/java5.png" class="card-img-top">
                 <div class="card-body">
                     <h4 class="card-title">Edvard Munch</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nemo, fugiat
-                        consequatur.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nemo, fugiat consequatur.</p>
                     <a href="#" class="btn btn-warning">Подивитися</a>
                 </div>
             </div>
@@ -200,8 +178,7 @@
                 <img src="resources/img/c++.jpg" class="card-img-top">
                 <div class="card-body">
                     <h4 class="card-title">Pablo Picasso</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nemo, fugiat
-                        consequatur.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nemo, fugiat consequatur.</p>
                     <a href="#" class="btn btn-warning">Подивитися</a>
                 </div>
             </div>
@@ -211,8 +188,7 @@
                 <img src="resources/img/js.jpg" class="card-img-top">
                 <div class="card-body">
                     <h4 class="card-title">Leonardo di ser Piero da Vinci</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nemo, fugiat
-                        consequatur.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nemo, fugiat consequatur.</p>
                     <a href="#" class="btn btn-warning">Подивитися</a>
                 </div>
             </div>
