@@ -10,13 +10,6 @@
 <head>
     <title>Exhibition we have</title>
     <link rel="stylesheet" href="resources/css/exhibition-style.css">
-    <%--    <script type="text/javascript">--%>
-    <%--        window.onload = function () {--%>
-    <%--            var b = document.getElementById("b");--%>
-    <%--            b.disabled = !${Role};--%>
-    <%--        }--%>
-
-    <%--    </script>--%>
 </head>
 
 <body>
@@ -110,7 +103,7 @@
             </c:forEach>
         </table>
 
-        <a href="index.html">Back to login</a>
+        <a href="/">Back to main page</a>
     </div>
 </div>
 </body>

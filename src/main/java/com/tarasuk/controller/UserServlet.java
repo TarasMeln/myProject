@@ -50,9 +50,9 @@ public class UserServlet extends HttpServlet {
         if (userUtil.login(email, password)) {
             session.setAttribute("Role", userUtil.UserIsAdmin(email, password));
             session.setAttribute("IdUserBD", userUtil.getUserId(email, password));
-            req.getRequestDispatcher("WEB-INF/view/welcome.jsp").forward(req, resp);
+            req.getRequestDispatcher("/").forward(req, resp);
         } else {
-            req.getRequestDispatcher("WEB-INF/view/no.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/view/invalid-login.jsp").forward(req, resp);
         }
     }
 
