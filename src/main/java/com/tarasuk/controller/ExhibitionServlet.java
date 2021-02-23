@@ -124,7 +124,7 @@ public class ExhibitionServlet extends HttpServlet {
                 String exhibitionId = req.getParameter("exhibitionId");
                 Exhibition exhibition = exhibitionUtil.getExhibitionById(exhibitionId);
                 req.setAttribute("THE_EXHIBITION", exhibition);
-                int purchasedTickets = exhibitionUtil.statistics();
+                int purchasedTickets = exhibitionUtil.statistics(exhibition.getId());
                 req.setAttribute("PURCHASED_TICKETS", purchasedTickets);
                 req.getRequestDispatcher("/statistics-exhibition-form.jsp").forward(req, resp);
             } else {

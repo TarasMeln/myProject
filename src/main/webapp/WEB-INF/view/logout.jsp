@@ -12,6 +12,6 @@
 </head>
 <body>
 Ви вийшли з аккаунту
-<a href="index.html">Back to main page</a>
+<a href="/main-page">Back to main page</a>
 </body>
 </html>

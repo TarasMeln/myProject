@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>Зайшов , штраф сердечко!</h1>
-<a href="index.html">Back to main page</a>
+<a href="/main-page">Back to main page</a>
 </body>
 </html>

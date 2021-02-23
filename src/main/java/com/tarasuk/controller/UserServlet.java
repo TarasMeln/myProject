@@ -24,12 +24,6 @@ public class UserServlet extends HttpServlet {
                 theCommand = "PAGE";
             }
             switch (theCommand) {
-                case "ADD":
-                    addUser(req, resp);
-                    break;
-                case "LOGIN":
-                    login(req, resp);
-                    break;
                 case "PAGE":
                     loginPage(req, resp);
                     break;
@@ -40,7 +34,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void loginPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("WEB-INF/view/login.html").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/view/login.jsp").forward(req, resp);
     }
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,7 +44,7 @@ public class UserServlet extends HttpServlet {
         if (userUtil.login(email, password)) {
             session.setAttribute("Role", userUtil.UserIsAdmin(email, password));
             session.setAttribute("IdUserBD", userUtil.getUserId(email, password));
-            req.getRequestDispatcher("WEB-INF/view/welcome.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/view/index.jsp").forward(req, resp);
         } else {
             req.getRequestDispatcher("WEB-INF/view/no.jsp").forward(req, resp);
         }
@@ -60,7 +54,7 @@ public class UserServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        User user = new User(email,password);
+        User user = new User(email, password);
         userUtil.addUser(user);
 
         loginPage(req, resp);
@@ -68,7 +62,22 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        try {
+            String theCommand = req.getParameter("command");
+            if (theCommand == null) {
+                theCommand = "PAGE";
+            }
+            switch (theCommand) {
+                case "ADD":
+                    addUser(req, resp);
+                    break;
+                case "LOGIN":
+                    login(req, resp);
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

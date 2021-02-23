@@ -15,7 +15,7 @@ public class ExhibitionUtil {
     private static final String UPDATE_EXHIBITION = "update exhibitions set theme=? , hall=? , date=?, ticket_price=? where id=?";
     private static final String DELETE_EXHIBITION = "delete from exhibitions where id=?";
     private static final String INSERT_USERS_EXHIBITIONS = "insert into users_exhibitions (user_id,exhibition_id) values (?,?)";
-    private static final String FIND_USERS_EXHIBITIONS = "SELECT `exhibition_id`, COUNT(`exhibition_id`) AS `count` FROM users_exhibitions";
+    private static final String FIND_USERS_EXHIBITIONS = "Select count from ( SELECT `exhibition_id` , COUNT(`exhibition_id`) AS `count`  from  users_exhibitions  group by `exhibition_id`) as T where `exhibition_id`=?";
     private static final String INSERT_EXHIBITION = "insert into exhibitions (theme,hall,date,ticket_price) values (?,?,?,?)";
     private static final String FIND_EXHIBITION_BY_ID = "SELECT * FROM exhibitions where id = ?";
     private static final String FIND_ALL_EXHIBITION =
@@ -159,7 +159,7 @@ public class ExhibitionUtil {
         }
     }
 
-    public int statistics() throws Exception {
+    public int statistics(Long idExhibition) throws Exception {
 
         Connection myConn = null;
         PreparedStatement preparedStatement = null;
@@ -168,6 +168,7 @@ public class ExhibitionUtil {
         try {
             myConn = dataSource.getConnection();
             preparedStatement = myConn.prepareStatement(FIND_USERS_EXHIBITIONS);
+            preparedStatement.setLong(1, idExhibition);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 count = resultSet.getInt("count");
