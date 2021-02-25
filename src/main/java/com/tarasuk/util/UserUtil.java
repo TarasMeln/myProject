@@ -1,11 +1,9 @@
 package com.tarasuk.util;
 
-import com.tarasuk.db.entity.User;
+import com.tarasuk.db.Model.User;
 
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.tarasuk.db.DBManager.*;
 

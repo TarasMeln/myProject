@@ -20,7 +20,7 @@
 </div>
 <div id="container">
     <h3>Add Exhibition</h3>
-    <form action="exhibition" method="get">
+    <form action="exhibition" method="post">
         <input type="hidden" name="command" value="ADD"/>
         <table>
             <tbody>

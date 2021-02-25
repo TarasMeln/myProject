@@ -1,6 +1,6 @@
 package com.tarasuk.controller;
 
-import com.tarasuk.db.entity.User;
+import com.tarasuk.db.Model.User;
 import com.tarasuk.util.UserUtil;
 
 import javax.annotation.Resource;
@@ -46,7 +46,7 @@ public class UserServlet extends HttpServlet {
             session.setAttribute("IdUserBD", userUtil.getUserId(email, password));
             req.getRequestDispatcher("WEB-INF/view/index.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher("WEB-INF/view/no.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/view/wrong-login.jsp").forward(req, resp);
         }
     }
 

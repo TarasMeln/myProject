@@ -1,6 +1,6 @@
 package com.tarasuk.controller;
 
-import com.tarasuk.db.entity.Exhibition;
+import com.tarasuk.db.Model.Exhibition;
 import com.tarasuk.util.ExhibitionUtil;
 
 import javax.annotation.Resource;
@@ -17,6 +17,23 @@ public class ExhibitionServlet extends HttpServlet {
     private ExhibitionUtil exhibitionUtil;
     @Resource(name = "jdbc/mydatabase")
     private DataSource dataSource;
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            String theCommand = req.getParameter("command");
+            switch (theCommand) {
+                case "ADD":
+                    addExhibition(req, resp);
+                    break;
+                case "UPDATE":
+                    updateExhibition(req, resp);
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
@@ -38,14 +55,8 @@ public class ExhibitionServlet extends HttpServlet {
                 case "SORT_BY_PRICE":
                     sortByPrice(req, resp);
                     break;
-                case "ADD":
-                    addExhibition(req, resp);
-                    break;
                 case "LOAD":
                     loadUpdateFormExhibition(req, resp);
-                    break;
-                case "UPDATE":
-                    updateExhibition(req, resp);
                     break;
                 case "DELETE":
                     deleteExhibition(req, resp);
@@ -60,6 +71,40 @@ public class ExhibitionServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void listExhibition(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        String pageStringId = req.getParameter("page");
+        Integer pageId;
+        if (pageStringId == null) {
+            pageId = 1;
+        } else {
+            pageId = Integer.parseInt(pageStringId);
+        }
+        Integer total = 5;
+        if (pageId != 1) {
+            pageId -= 1;
+            pageId = pageId * total + 1;
+        }
+        pageId -= 1;
+
+
+        List<Exhibition> exhibitions = exhibitionUtil.findExhibitionsForPage(pageId, total);
+        req.setAttribute("Exhibition_List", exhibitions);
+        HttpSession session = req.getSession();
+        Boolean isAdmin = (Boolean) session.getAttribute("Role");
+        Boolean isLog;
+        if (isAdmin != null) {
+            isLog = true;
+            req.setAttribute("Role", isAdmin);
+        } else {
+            isLog = false;
+        }
+        req.setAttribute("Log", isLog);
+        double totalPages = exhibitionUtil.totalPages(total);
+        int t = (int) totalPages;
+        req.setAttribute("TotalPages", t);
+        req.getRequestDispatcher("WEB-INF/view/exhibition-list.jsp").forward(req, resp);
     }
 
     private void sortByDate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -179,6 +224,7 @@ public class ExhibitionServlet extends HttpServlet {
                 double ticketPrice = Double.parseDouble(req.getParameter("ticketPrice"));
                 Exhibition exhibition = new Exhibition(theme, hall, date, ticketPrice);
                 exhibitionUtil.addExhibition(exhibition);
+                req.setAttribute("page", 1);
                 listExhibition(req, resp);
             } else {
                 req.getRequestDispatcher("WEB-INF/view/error.jsp").forward(req, resp);
@@ -189,29 +235,6 @@ public class ExhibitionServlet extends HttpServlet {
 
     }
 
-    private void listExhibition(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        List<Exhibition> exhibitions = exhibitionUtil.findAllExhibition();
-        req.setAttribute("Exhibition_List", exhibitions);
-
-        HttpSession session = req.getSession();
-        Boolean isAdmin = (Boolean) session.getAttribute("Role");
-        Boolean isLog;
-        if (isAdmin != null) {
-            isLog = true;
-            req.setAttribute("Log", isLog);
-            req.setAttribute("Role", isAdmin);
-        } else {
-            isLog=false;
-            req.setAttribute("Log", isLog);
-        }
-
-        req.getRequestDispatcher("WEB-INF/view/exhibition-list.jsp").forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    }
 
     @Override
     public void init() throws ServletException {

@@ -69,10 +69,12 @@
                     <c:param name="command" value="DELETE"/>
                     <c:param name="exhibitionId" value="${tempExhibition.getId()}"/>
                 </c:url>
+
                 <c:url var="BuyLink" value="exhibition">
                     <c:param name="command" value="BUY"/>
                     <c:param name="exhibitionId" value="${tempExhibition.getId()}"/>
                 </c:url>
+
                 <c:url var="StatisticsLink" value="exhibition">
                     <c:param name="command" value="STATISTICS"/>
                     <c:param name="exhibitionId" value="${tempExhibition.getId()}"/>
@@ -102,8 +104,16 @@
                 </tr>
 
             </c:forEach>
-        </table>
 
+        </table>
+        <c:forEach var="i" begin="1" end="${TotalPages}">
+            <c:url var="ListLink" value="exhibition">
+                <c:param name="command" value="LIST"/>
+                <c:param name="page" value="${i}"/>
+            </c:url>
+            <a href="${ListLink}">${i}</a>
+        </c:forEach>
+        <br>
         <a href="/main-page">Back to login</a>
     </div>
 </div>

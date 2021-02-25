@@ -1,4 +1,4 @@
-package com.tarasuk.db.entity;
+package com.tarasuk.db.Model;
 
 import java.sql.Timestamp;
 import java.util.Objects;

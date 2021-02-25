@@ -20,7 +20,7 @@
 </div>
 <div id="container">
     <h3>Update Exhibition</h3>
-    <form action="exhibition" method="get">
+    <form action="exhibition" method="post">
         <input type="hidden" name="command" value="UPDATE"/>
         <input type="hidden" name="exhibitionId" value="${THE_EXHIBITION.getId()}"/>
 

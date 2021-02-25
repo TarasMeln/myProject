@@ -1,9 +1,10 @@
 
-b	java:S112k"FDefine and throw a dedicated exception instead of using a generic one.(¼ßÃþ8‹Óî®û.
-Z	java:S106<"9Replace this use of System.out or System.err by a logger.(©þêÜúÿÿÿÿ8 À×°û.
-h	java:S112…"FDefine and throw a dedicated exception instead of using a generic one.(³ÏÔ·ýÿÿÿÿ8‹Óî®û.
-h	java:S112¢"FDefine and throw a dedicated exception instead of using a generic one.(¸þ¶´úÿÿÿÿ8Ëßá°û.
-Z	java:S106Q"9Replace this use of System.out or System.err by a logger.(©þêÜúÿÿÿÿ8 À×°û.
-[	java:S106Ú"9Replace this use of System.out or System.err by a logger.(©þêÜúÿÿÿÿ8õ¨°¶û.
-b	java:S112s"FDefine and throw a dedicated exception instead of using a generic one.(ô·µÜ8‹Óî®û.
-b	java:S112W"FDefine and throw a dedicated exception instead of using a generic one.(ùö–Í8‹Óî®û.
+h	java:S112¦"FDefine and throw a dedicated exception instead of using a generic one.(§éÀÊüÿÿÿÿ8ÿ¨‘Šý.
+b	java:S112["FDefine and throw a dedicated exception instead of using a generic one.(ùö–Í8ÿ¨‘Šý.
+b	java:S112w"FDefine and throw a dedicated exception instead of using a generic one.(ô·µÜ8ÿ¨‘Šý.
+[	java:S106ö"9Replace this use of System.out or System.err by a logger.(©þêÜúÿÿÿÿ8£•ƒÌý.
+Z	java:S106@"9Replace this use of System.out or System.err by a logger.(©þêÜúÿÿÿÿ8ÿ¨‘Šý.
+Z	java:S106U"9Replace this use of System.out or System.err by a logger.(©þêÜúÿÿÿÿ8ÿ¨‘Šý.
+b	java:S112o"FDefine and throw a dedicated exception instead of using a generic one.(¼ßÃþ8ÿ¨‘Šý.
+[	java:S106ß"9Replace this use of System.out or System.err by a logger.(©þêÜúÿÿÿÿ8õ¨°¶û.
+h	java:S112‰"FDefine and throw a dedicated exception instead of using a generic one.(³ÏÔ·ýÿÿÿÿ8ÿ¨‘Šý.

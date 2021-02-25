@@ -1,23 +1,24 @@
 
-j
-java:S1192X"MDefine a constant instead of duplicating this literal "exhibitionId" 5 times.(ÊÎÖÍ8ØÛÑ¸û.
-ƒ
-java:S1192D"aDefine a constant instead of duplicating this literal "WEB-INF/view/exhibition-list.jsp" 4 times.(ÄÏû¹ıÿÿÿÿ8Òêè¶û.
+g	java:S112L"FDefine and throw a dedicated exception instead of using a generic one.(è£§ôşÿÿÿÿ8”èæÇı.
 H
-java:S5411œ"*Use the primitive boolean expression here.(ºËáÃ8‚ŸŒ±ü.
-G
-java:S5411{"*Use the primitive boolean expression here.(ºËáÃ8æÑ±ü.
-r
-java:S1192C"PDefine a constant instead of duplicating this literal "Exhibition_List" 4 times.(ø½üÿÿÿÿ8Òêè¶û.
+java:S5411Ü"*Use the primitive boolean expression here.(ºËáÃ8ĞÁİ°ü.
+H
+java:S5411É"*Use the primitive boolean expression here.(ºËáÃ8ÑÒ…ı.
 z
-java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Õí’øÿÿÿÿ8‰é‚¯û.
->	java:S131""Add a default case to this switch.(Ó…¡‚8¥Û¼°û.
-Ÿ
-java:S1186Î"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(üª¼í8ëÆÌ¸û.
-h	java:S112À"FDefine and throw a dedicated exception instead of using a generic one.(è£§ôşÿÿÿÿ8ëÆÌ¸û.
-y
-java:S1192^"WDefine a constant instead of duplicating this literal "WEB-INF/view/error.jsp" 9 times.(šöø¦şÿÿÿÿ8úë­±ü.
+java:S1192‹"WDefine a constant instead of duplicating this literal "WEB-INF/view/error.jsp" 9 times.(šöø¦şÿÿÿÿ8ÑÒ…ı.
+h
+java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(Ó…¡‚8¿èœÉı.
 H
-java:S5411¯"*Use the primitive boolean expression here.(ºËáÃ8ĞÁİ°ü.
-G
-java:S5411i"*Use the primitive boolean expression here.(ºËáÃ8ƒå±ü.
+java:S5411¨"*Use the primitive boolean expression here.(ºËáÃ8ÑÒ…ı.
+ƒ
+java:S1192k"aDefine a constant instead of duplicating this literal "WEB-INF/view/exhibition-list.jsp" 4 times.(ÄÏû¹ıÿÿÿÿ8ÑÒ…ı.
+H
+java:S5411–"*Use the primitive boolean expression here.(ºËáÃ8ÑÒ…ı.
+k
+java:S1192…"MDefine a constant instead of duplicating this literal "exhibitionId" 5 times.(ÊÎÖÍ8ÑÒ…ı.
+z
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Õí’øÿÿÿÿ8ÑÒ…ı.
+r
+java:S1192]"PDefine a constant instead of duplicating this literal "Exhibition_List" 4 times.(ø½üÿÿÿÿ8ÑÒ…ı.
+>	java:S131""Add a default case to this switch.(Ó…¡‚8¿èœÉı.
+>	java:S131-""Add a default case to this switch.(Ó…¡‚8ÑÒ…ı.

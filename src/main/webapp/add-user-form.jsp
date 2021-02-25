@@ -20,7 +20,7 @@
 </div>
 <div id="container">
     <h3>Add User</h3>
-    <form action="user" method="get">
+    <form action="user" method="post">
         <input type="hidden" name="command" value="ADD"/>
         <table>
             <tbody>

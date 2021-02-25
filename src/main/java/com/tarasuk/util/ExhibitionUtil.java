@@ -1,6 +1,6 @@
 package com.tarasuk.util;
 
-import com.tarasuk.db.entity.Exhibition;
+import com.tarasuk.db.Model.Exhibition;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -18,8 +18,9 @@ public class ExhibitionUtil {
     private static final String FIND_USERS_EXHIBITIONS = "Select count from ( SELECT `exhibition_id` , COUNT(`exhibition_id`) AS `count`  from  users_exhibitions  group by `exhibition_id`) as T where `exhibition_id`=?";
     private static final String INSERT_EXHIBITION = "insert into exhibitions (theme,hall,date,ticket_price) values (?,?,?,?)";
     private static final String FIND_EXHIBITION_BY_ID = "SELECT * FROM exhibitions where id = ?";
-    private static final String FIND_ALL_EXHIBITION =
-            "SELECT * FROM exhibitions";
+    private static final String FIND_EXHIBITIONS_FOR_PAGE =
+            "SELECT * FROM exhibitions limit ?,?";
+    private static final String FIND_ALL_EXHIBITION = "Select (count/?) AS number from (SELECT `id` , COUNT(`id`) AS `count`  from  exhibitions  ) as T";
     private static final String FIELD_ID =
             "id";
     private static final String FIELD_THEME =
@@ -30,21 +31,24 @@ public class ExhibitionUtil {
             "date";
     private static final String FIELD_TICKET_PRICE =
             "ticket_price";
-
+    private static final String FIELD_NUMBER =
+            "number";
 
     public ExhibitionUtil(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    public List<Exhibition> findAllExhibition() {
+    public List<Exhibition> findExhibitionsForPage(Integer start, Integer total) {
         List<Exhibition> exhibitions = new ArrayList<>();
         Connection con = null;
-        Statement statement = null;
+        PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
             con = dataSource.getConnection();
-            statement = con.createStatement();
-            resultSet = statement.executeQuery(FIND_ALL_EXHIBITION);
+            preparedStatement = con.prepareStatement(FIND_EXHIBITIONS_FOR_PAGE);
+            preparedStatement.setInt(1, start);
+            preparedStatement.setInt(2, total);
+            resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 long id = resultSet.getLong(FIELD_ID);
                 String theme = resultSet.getString(FIELD_THEME);
@@ -59,7 +63,7 @@ public class ExhibitionUtil {
             //
             System.out.println(e.getMessage());
         } finally {
-            close(con, statement, resultSet);
+            close(con, preparedStatement, resultSet);
         }
         return exhibitions;
     }
@@ -221,5 +225,30 @@ public class ExhibitionUtil {
             close(con, statement, resultSet);
         }
         return exhibitions;
+    }
+
+    public double totalPages(Integer total) {
+        double count = 0;
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            con = dataSource.getConnection();
+            preparedStatement = con.prepareStatement(FIND_ALL_EXHIBITION);
+            preparedStatement.setInt(1,total);
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.next())
+            {
+                count=resultSet.getDouble(FIELD_NUMBER);
+            }
+        } catch (SQLException e) {
+            //
+            System.out.println(e.getMessage());
+        } finally {
+            close(con, preparedStatement, resultSet);
+        }
+
+        return Math.ceil(count);
+
     }
 }
