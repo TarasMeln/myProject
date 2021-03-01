@@ -187,11 +187,14 @@ public class ExhibitionServlet extends HttpServlet {
         long id = Long.parseLong(req.getParameter("exhibitionId"));
         String theme = req.getParameter("theme");
         long hall = Long.parseLong(req.getParameter("hall"));
-        Timestamp date = Timestamp.valueOf(req.getParameter("date"));
+        String datetimeLocal = (req.getParameter("date").replace("T"," "));
+        datetimeLocal+=":00";
+        Timestamp date = Timestamp.valueOf(datetimeLocal);
         double ticketPrice = Double.parseDouble(req.getParameter("ticketPrice"));
         Exhibition exhibition = new Exhibition(id, theme, hall, date, ticketPrice);
         exhibitionUtil.updateExhibition(exhibition);
         listExhibition(req, resp);
+
     }
 
     private void loadUpdateFormExhibition(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -220,7 +223,9 @@ public class ExhibitionServlet extends HttpServlet {
             if (isAdmin) {
                 String theme = req.getParameter("theme");
                 long hall = Long.parseLong(req.getParameter("hall"));
-                Timestamp date = Timestamp.valueOf(req.getParameter("date"));
+                String datetimeLocal = (req.getParameter("date").replace("T"," "));
+                datetimeLocal+=":00";
+                Timestamp date = Timestamp.valueOf(datetimeLocal);
                 double ticketPrice = Double.parseDouble(req.getParameter("ticketPrice"));
                 Exhibition exhibition = new Exhibition(theme, hall, date, ticketPrice);
                 exhibitionUtil.addExhibition(exhibition);

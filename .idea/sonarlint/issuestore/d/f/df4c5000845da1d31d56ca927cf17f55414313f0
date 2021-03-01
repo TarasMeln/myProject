@@ -1,24 +1,24 @@
 
-g	java:S112L"FDefine and throw a dedicated exception instead of using a generic one.(è£§ôşÿÿÿÿ8”èæÇı.
-H
-java:S5411Ü"*Use the primitive boolean expression here.(ºËáÃ8ĞÁİ°ü.
-H
-java:S5411É"*Use the primitive boolean expression here.(ºËáÃ8ÑÒ…ı.
-z
-java:S1192‹"WDefine a constant instead of duplicating this literal "WEB-INF/view/error.jsp" 9 times.(šöø¦şÿÿÿÿ8ÑÒ…ı.
-h
-java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(Ó…¡‚8¿èœÉı.
-H
-java:S5411¨"*Use the primitive boolean expression here.(ºËáÃ8ÑÒ…ı.
 ƒ
 java:S1192k"aDefine a constant instead of duplicating this literal "WEB-INF/view/exhibition-list.jsp" 4 times.(ÄÏû¹ıÿÿÿÿ8ÑÒ…ı.
 H
-java:S5411–"*Use the primitive boolean expression here.(ºËáÃ8ÑÒ…ı.
-k
-java:S1192…"MDefine a constant instead of duplicating this literal "exhibitionId" 5 times.(ÊÎÖÍ8ÑÒ…ı.
+java:S5411É"*Use the primitive boolean expression here.(ºËáÃ8œ¨¢øş.
+>	java:S131-""Add a default case to this switch.(Ó…¡‚8ÑÒ…ı.
+g	java:S112L"FDefine and throw a dedicated exception instead of using a generic one.(è£§ôşÿÿÿÿ8”èæÇı.
+h
+java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(Ó…¡‚8¿èœÉı.
 z
-java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Õí’øÿÿÿÿ8ÑÒ…ı.
+java:S1192‹"WDefine a constant instead of duplicating this literal "WEB-INF/view/error.jsp" 9 times.(šöø¦şÿÿÿÿ8œ¨¢øş.
+H
+java:S5411–"*Use the primitive boolean expression here.(ºËáÃ8œ¨¢øş.
+>	java:S131""Add a default case to this switch.(Ó…¡‚8¿èœÉı.
+k
+java:S1192…"MDefine a constant instead of duplicating this literal "exhibitionId" 5 times.(ÊÎÖÍ8œ¨¢øş.
+H
+java:S5411¨"*Use the primitive boolean expression here.(ºËáÃ8œ¨¢øş.
 r
 java:S1192]"PDefine a constant instead of duplicating this literal "Exhibition_List" 4 times.(ø½üÿÿÿÿ8ÑÒ…ı.
->	java:S131""Add a default case to this switch.(Ó…¡‚8¿èœÉı.
->	java:S131-""Add a default case to this switch.(Ó…¡‚8ÑÒ…ı.
+H
+java:S5411Ü"*Use the primitive boolean expression here.(ºËáÃ8œ¨¢øş.
+z
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Õí’øÿÿÿÿ8ÑÒ…ı.

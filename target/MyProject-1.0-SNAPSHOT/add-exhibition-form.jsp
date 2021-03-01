@@ -30,15 +30,15 @@
             </tr>
             <tr>
                 <td><label>Hall:</label></td>
-                <td><input type="text" name="hall"/></td>
+                <td><input type="number" name="hall"/></td>
             </tr>
             <tr>
                 <td><label>Date:</label></td>
-                <td><input type="text" name="date"/></td>
+                <td><input type="datetime-local" name="date"/></td>
             </tr>
             <tr>
                 <td><label>Ticket price:</label></td>
-                <td><input type="text" name="ticketPrice"/></td>
+                <td><input type="number" name="ticketPrice"/></td>
             </tr>
             <tr>
                 <td><label></label></td>

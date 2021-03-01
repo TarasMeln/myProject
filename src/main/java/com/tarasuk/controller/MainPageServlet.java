@@ -10,13 +10,11 @@ public class MainPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Boolean isLog = (Boolean) session.getAttribute("Role");
-        if (isLog != null) {
-            isLog = true;
-        } else {
+        Boolean isLog = (Boolean) session.getAttribute("isLog");
+        if (isLog == null) {
             isLog = false;
         }
-        session.setAttribute("isLog", isLog);
+        req.setAttribute("isLog", isLog);
         req.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(req, resp);
     }
 }

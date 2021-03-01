@@ -30,9 +30,6 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="/test" class="nav-link">TEST</a>
-                </li>
-                <li class="nav-item active">
                     <a href="/exhibition" class="nav-link">Виставки</a>
                 </li>
                 <li class="nav-item active">

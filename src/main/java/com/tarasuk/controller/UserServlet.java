@@ -44,6 +44,7 @@ public class UserServlet extends HttpServlet {
         if (userUtil.login(email, password)) {
             session.setAttribute("Role", userUtil.UserIsAdmin(email, password));
             session.setAttribute("IdUserBD", userUtil.getUserId(email, password));
+            session.setAttribute("isLog", true);
             req.getRequestDispatcher("WEB-INF/view/index.jsp").forward(req, resp);
         } else {
             req.getRequestDispatcher("WEB-INF/view/wrong-login.jsp").forward(req, resp);

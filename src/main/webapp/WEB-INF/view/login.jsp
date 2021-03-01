@@ -26,7 +26,7 @@
     <label for="reset">Reset</label>
     <div id="wrapper">
         <div id="arrow"></div>
-        <input id="email" name="email" placeholder="Email" type="text" required>
+        <input id="email" name="email" placeholder="Email" type="email" required>
         <input id="pass" name="password" placeholder="Password" type="password" required>
     </div>
     <button type="submit">

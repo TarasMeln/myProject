@@ -38,35 +38,6 @@ public class ExhibitionUtil {
         this.dataSource = dataSource;
     }
 
-    public List<Exhibition> findExhibitionsForPage(Integer start, Integer total) {
-        List<Exhibition> exhibitions = new ArrayList<>();
-        Connection con = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-            con = dataSource.getConnection();
-            preparedStatement = con.prepareStatement(FIND_EXHIBITIONS_FOR_PAGE);
-            preparedStatement.setInt(1, start);
-            preparedStatement.setInt(2, total);
-            resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                long id = resultSet.getLong(FIELD_ID);
-                String theme = resultSet.getString(FIELD_THEME);
-                long hall = resultSet.getLong(FIELD_HALL);
-                Timestamp date = resultSet.getTimestamp(FIELD_DATE);
-                double ticketPrice = resultSet.getDouble(FIELD_TICKET_PRICE);
-                Exhibition exhibition = new Exhibition(id, theme, hall, date, ticketPrice);
-                exhibitions.add(exhibition);
-            }
-
-        } catch (SQLException e) {
-            //
-            System.out.println(e.getMessage());
-        } finally {
-            close(con, preparedStatement, resultSet);
-        }
-        return exhibitions;
-    }
 
     public void addExhibition(Exhibition exhibition) {
         Connection con = null;
@@ -89,7 +60,7 @@ public class ExhibitionUtil {
     }
 
     public Exhibition getExhibitionById(String idExh) throws Exception {
-        Exhibition exhibition = null;
+        Exhibition exhibition ;
         Connection myConn = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -185,6 +156,36 @@ public class ExhibitionUtil {
         }
     }
 
+    public List<Exhibition> findExhibitionsForPage(Integer start, Integer total) {
+        List<Exhibition> exhibitions = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            con = dataSource.getConnection();
+            preparedStatement = con.prepareStatement(FIND_EXHIBITIONS_FOR_PAGE);
+            preparedStatement.setInt(1, start);
+            preparedStatement.setInt(2, total);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                long id = resultSet.getLong(FIELD_ID);
+                String theme = resultSet.getString(FIELD_THEME);
+                long hall = resultSet.getLong(FIELD_HALL);
+                Timestamp date = resultSet.getTimestamp(FIELD_DATE);
+                double ticketPrice = resultSet.getDouble(FIELD_TICKET_PRICE);
+                Exhibition exhibition = new Exhibition(id, theme, hall, date, ticketPrice);
+                exhibitions.add(exhibition);
+            }
+
+        } catch (SQLException e) {
+            //
+            System.out.println(e.getMessage());
+        } finally {
+            close(con, preparedStatement, resultSet);
+        }
+        return exhibitions;
+    }
+
     public List<Exhibition> sortBy(String orderBy) {
         List<Exhibition> exhibitions = new ArrayList<>();
         Connection con = null;
@@ -235,11 +236,10 @@ public class ExhibitionUtil {
         try {
             con = dataSource.getConnection();
             preparedStatement = con.prepareStatement(FIND_ALL_EXHIBITION);
-            preparedStatement.setInt(1,total);
+            preparedStatement.setInt(1, total);
             resultSet = preparedStatement.executeQuery();
-            if(resultSet.next())
-            {
-                count=resultSet.getDouble(FIELD_NUMBER);
+            if (resultSet.next()) {
+                count = resultSet.getDouble(FIELD_NUMBER);
             }
         } catch (SQLException e) {
             //

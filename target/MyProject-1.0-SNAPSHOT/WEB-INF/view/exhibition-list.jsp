@@ -114,7 +114,7 @@
             <a href="${ListLink}">${i}</a>
         </c:forEach>
         <br>
-        <a href="/main-page">Back to login</a>
+        <a href="/main-page">Back to main page</a>
     </div>
 </div>
 </body>

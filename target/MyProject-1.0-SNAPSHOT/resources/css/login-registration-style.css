@@ -58,14 +58,14 @@ label:hover {
 label[for="signin"] { margin-right: 20px; }
 label[for="reset"] { float: right; }
 input[type=radio]:checked + label { opacity: 1; }
-input:invalid {
-  border: 2px dashed red;
-}
+/*input:invalid {*/
+/*  border: 2px dashed red;*/
+/*}*/
 
-input:valid {
-  border: 2px solid black;
-}
-input[type=text],
+/*input:valid {*/
+/*  border: 2px solid black;*/
+/*}*/
+input[type=email],
 input[type=password] {
   background: #fff;
   border: none;

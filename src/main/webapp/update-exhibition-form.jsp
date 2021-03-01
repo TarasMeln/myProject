@@ -33,17 +33,17 @@
             </tr>
             <tr>
                 <td><label>Hall:</label></td>
-                <td><input type="text" name="hall"
+                <td><input type="number" name="hall"
                            value="${THE_EXHIBITION.getHall()}"/></td>
             </tr>
             <tr>
                 <td><label>Date:</label></td>
-                <td><input type="text" name="date"
+                <td><input type="datetime-local" name="date"
                            value="${THE_EXHIBITION.getDate()}"/></td>
             </tr>
             <tr>
                 <td><label>Ticket price:</label></td>
-                <td><input type="text" name="ticketPrice"
+                <td><input type="number" name="ticketPrice"
                            value="${THE_EXHIBITION.getTicketPrice()}"/></td>
             </tr>
             <tr>
