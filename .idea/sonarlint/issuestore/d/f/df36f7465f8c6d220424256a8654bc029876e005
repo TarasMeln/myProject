@@ -1,9 +1,9 @@
 
->	java:S131""Add a default case to this switch.(Σ…΅‚8θμ‚†ύ.
+>	java:S131G""Add a default case to this switch.(Σ…΅‚8κ§‘ύ.
 h
-java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(Σ…΅‚8Ζγύ.
-h
-java:S1301F"KReplace this "switch" statement by "if" statements to increase readability.(Σ…΅‚8κ§‘ύ.
+java:S1301G"KReplace this "switch" statement by "if" statements to increase readability.(Σ…΅‚8κ§‘ύ.
 u
 java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(·•ωΏ8›¤†―ϋ.
->	java:S131F""Add a default case to this switch.(Σ…΅‚8κ§‘ύ.
+h
+java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(Σ…΅‚8Ζγύ.
+>	java:S131""Add a default case to this switch.(Σ…΅‚8θμ‚†ύ.
